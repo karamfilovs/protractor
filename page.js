@@ -1,40 +1,28 @@
 'use strict';
-function SignUp () {
-    var navigateToSignUpPagen = element(by.css('[ui-sref="auth.register"]')),
-        inputUserName = element(by.model('vm.user.firstName')),
-        inputUserLastName = element(by.model('vm.user.lastName')),
-        inputUserEmail = element(by.model('vm.user.email')),
-        inputUserPassword = element(by.model('vm.user.password')),
-        inputUserRepassword = element(by.model('vm.user.repassword')),
-        confirmSignUp = element(by.css('.btn-big.btn-red'));
+
+
+function SignUp() {
+
+    var inputUserName = element(by.id('loginusername')),
+        inputUserPassword = element(by.id('loginpassword')),
+        loginButton = element(by.id('loginsubmit'));
 
     this.navigateToMainApp = function () {
-        browser.get('https://app.skillhunt.io/');
+        browser.get('https://st2016.inv.bg');
     }
 
-    this.goToSignUpPage = function () {
-        navigateToSignUpPagen.click();
+
+    this.fillFormName = function (username) {
+        inputUserName.sendKeys(username);
     }
 
-    this.fillFormName = function () {
-        inputUserName.sendKeys('John');
-    }
 
-    this.fillFormLastName = function () {
-        inputUserLastName.sendKeys('Smith');
-    }
-
-    this.fillFormEmail = function () {
-        inputUserEmail.sendKeys('john.smith@mail.com');
-    }
-
-    this.fillPassword = function () {
-        inputUserPassword.sendKeys('somePassword');
-        inputUserRepassword.sendKeys('somePassword');
+    this.fillPassword = function (password) {
+        inputUserPassword.sendKeys(password);
     }
 
     this.confirmSignUpButton = function () {
-        confirmSignUp.click()
+        loginButton.click()
     }
 }
 
